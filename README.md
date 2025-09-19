@@ -61,5 +61,6 @@ Place the executable in your PATH (so Python can find it), or in the same folder
 Install dependencies
 selenium
 numpy
+Jupyter
 
 
