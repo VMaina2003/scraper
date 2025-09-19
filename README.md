@@ -41,7 +41,8 @@ Google Chrome browser
 Numpy
 
                    How to run the code
-    Install Python
+
+Install Python
 Make sure you have Python 3.8 or later installed.
 You can check by running:
 
@@ -59,8 +60,8 @@ Download the version that matches your Chrome browser version
 Place the executable in your PATH (so Python can find it), or in the same folder as your script.
 
 Install dependencies
-selenium
-numpy
-Jupyter
+selenium,
+pandas,
+Jupyter.
 
 
