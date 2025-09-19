@@ -37,3 +37,29 @@ Selenium (web scraping automation)
 webdriver-manager (auto-downloads ChromeDriver)
 
 Google Chrome browser
+
+Numpy
+
+                   How to run the code
+    Install Python
+Make sure you have Python 3.8 or later installed.
+You can check by running:
+
+
+
+Install Google Chrome
+The script uses Chrome with Selenium, so you need Google Chrome installed.
+
+Install ChromeDriver
+
+Go to ChromeDriver Downloads
+
+Download the version that matches your Chrome browser version
+
+Place the executable in your PATH (so Python can find it), or in the same folder as your script.
+
+Install dependencies
+selenium
+numpy
+
+
