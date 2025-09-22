@@ -1,67 +1,128 @@
-                              NSE Equity Statistics Scraper
+# NSE Equity Statistics Scraper
 
-This project automates the process of scraping Nairobi Securities Exchange (NSE) equity statistics from the official NSE website. The script uses Python + Selenium to collect data across all market sectors and save it into a structured CSV file.
+A Python-based web scraping tool that automates the collection of Nairobi Securities Exchange (NSE) equity statistics from the official NSE website.
 
-The end goal of this project is not just to fetch data, but also to analyze it so you can make better-informed investment decisions, such as identifying which shares to buy.
+The scraper uses **Selenium + ChromeDriver** to navigate through all listed market sectors, extract equity data, and save it into a structured CSV file. After scraping, it performs a basic analysis of gainers, losers, and most traded stocks, helping investors identify potential opportunities.
 
-                                 Features
+---
 
-Automatically opens the NSE Market Statistics page.
+## Features
 
-Navigates to the Equity Statistics tab.
+- Automatically opens the NSE Market Statistics page  
+- Navigates to the **Equity Statistics** tab  
+- Iterates through all available market sectors  
+- Extracts the following information for each company:  
+  - Sector  
+  - Company Name  
+  - Share Code  
+  - Volume  
+  - Last Traded Price  
+  - Price Change  
+- Saves all extracted data into **`equity_all_sectors.csv`**  
+- Runs a quick analysis:
+  - Top 5 Gainers  
+  - Top 5 Losers  
+  - Most Traded Stocks  
+  - Best Probable Buys (based on momentum + liquidity)  
 
-Iterates through all market sectors in the dropdown.
+---
 
- Extracts the following information for each listed company:
+## Tech Stack
 
-Company Name
+- Python 3.9+  
+- Selenium (browser automation)  
+- webdriver-manager (auto-handles ChromeDriver)  
+- Google Chrome (latest stable version recommended)  
+- Pandas & NumPy (data cleaning and analysis)  
 
-ISIN Code
+---
 
-Volume
+## Installation & Setup
 
-Last Traded Price
+### 1. Clone the repository
 
-Price Change
+git clone https://github.com/your-username/nse-equity-scraper.git
+cd nse-equity-scraper
+2. Create a virtual environment (recommended)
+bash
+Copy code
+python -m venv venv
+# Mac/Linux
+source venv/bin/activate
+# Windows
+venv\Scripts\activate
+3. Install dependencies
+bash
+Copy code
+pip install -r requirements.txt
+The requirements.txt file should include:
 
-Sector
+nginx
+Copy code
+selenium
+pandas
+numpy
+webdriver-manager
+4. Ensure Google Chrome is installed
+Check your Chrome version:
 
-Saves all the data to a CSV file (AllShares.csv).
+Open Chrome → navigate to chrome://settings/help
 
-                   Tech Stack
+The correct ChromeDriver will be downloaded automatically by webdriver-manager.
 
-Python 3.9+
+How to Run
+bash
+Copy code
+python main.py
+The script will:
 
-Selenium (web scraping automation)
+Launch Chrome in automated mode
 
-webdriver-manager (auto-downloads ChromeDriver)
+Navigate through all NSE equity sectors
 
-Google Chrome browser
+Save the scraped results into equity_all_sectors.csv
 
-Numpy
+Print summary statistics (top gainers, losers, most traded, and probable buys)
 
-                   How to run the code
+Output
+CSV file: equity_all_sectors.csv
 
-Install Python
-Make sure you have Python 3.8 or later installed.
-You can check by running:
+Example columns:
 
+text
+Copy code
+Sector, Company, Share Code, Volume, Last Traded Price, Change ($)
+BANKING, Equity Group Holdings, EQTY, 1,200,000, 38.50, +0.45
+MANUFACTURING, BAT Kenya, BAT, 300,000, 420.00, -5.00
+Console Output:
 
+text
+Copy code
+Top 5 Gainers:
+        Company        Sector     Change ($)    Volume
+...
 
-Install Google Chrome
-The script uses Chrome with Selenium, so you need Google Chrome installed.
+Best Probable Buys (Momentum + Liquidity):
+        Company        Sector     Change ($)    Volume    Score
+...
+Notes & Limitations
+The NSE website may change its structure, which could break the scraper
 
-Install ChromeDriver
+Long runtime if internet connection is slow (script waits for pages to load)
 
-Go to ChromeDriver Downloads
+Best used as a data collection + quick analysis tool — not financial advice
 
-Download the version that matches your Chrome browser version
+Roadmap / Future Improvements
+ Add scheduling for daily automatic scraping
 
-Place the executable in your PATH (so Python can find it), or in the same folder as your script.
+ Export results to Excel or Google Sheets
 
-Install dependencies
-selenium,
-pandas,
-Jupyter.
+ Build a simple dashboard (Streamlit/Flask) for visualization
 
+ Integrate notifications (email/Telegram) for top gainers/losers
 
+License
+MIT License – feel free to use and modify.
+
+pgsql
+Copy code
